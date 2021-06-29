@@ -41,7 +41,9 @@ Resources:
             Statement:
             - Effect: Allow
               Action:
-              - logs:*
+              - 'logs:CreateLogGroup'
+              - 'logs:CreateLogStream'
+              - 'logs:PutLogEvents'
               Resource: arn:aws:logs:*:*:*
 
   CsvToDDBLambdaRole:
