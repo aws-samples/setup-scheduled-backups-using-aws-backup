@@ -3,6 +3,13 @@ Description: DynamoDB Backup
 Resources:
   SourceS3Bucket:
     Type: 'AWS::S3::Bucket'
+    Properties:
+        BucketEncryption:
+            ServerSideEncryptionConfiguration:
+                - ServerSideEncryptionByDefault:
+                    SSEAlgorithm: 'AES256'
+        VersioningConfiguration:
+            Status: Enabled
   
   DynamoDBTable:
     Type: AWS::DynamoDB::Table
